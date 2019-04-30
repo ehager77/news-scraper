@@ -2,14 +2,15 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+// require('dotenv').config({ path: '.env' });
 
 var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
 
-mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
-
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/news-scraper";
+
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
 
 var app = express();
 
