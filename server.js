@@ -7,7 +7,7 @@ var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/news-scraper";
+var MONGODB_URI = "mongodb://heroku_2qlfck1n:5c8c19bahek8350k07jkrrritt@ds147354.mlab.com:47354/heroku_2qlfck1n" || "mongodb://localhost/news-scraper";
 
 var app = express();
 
