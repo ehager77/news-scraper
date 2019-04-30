@@ -7,6 +7,8 @@ var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
 
+mongoose.connect(MONGODB_URI, {useNewUrlParser: true});
+
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/news-scraper";
 
 var app = express();
@@ -19,7 +21,7 @@ app.use(express.static("public"));
 
 mongoose.Promise = Promise;
 
-mongoose.connect(MONGODB_URI);
+
 
 
 require("./routes/index.js")(app)
