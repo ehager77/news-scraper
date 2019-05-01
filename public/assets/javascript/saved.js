@@ -44,7 +44,7 @@ $(function() {
             type: "GET"
         }).then(function(result) {
 
-            $('.noteModalBody').append("<h2>" + result.headline + "</h2>");
+            $('.noteModalBody').append("<h2>" + "New Note" + "</h2>");
             $('.noteModalBody').append("<ul id='noteList'>")
 
             let newForm = $('<form>');
@@ -82,7 +82,7 @@ $(function() {
                 newCardBody.text(result.note[i].body)
                 newCard.append(newCardHeader);
                 newCard.append(newCardBody);
-                newCard.append("<button class=deleteNoteButton data-id=" + i + ">Delete</button>");
+                newCard.append("<button id=deleteNoteButton data-id=" + i + ">Delete</button>");
 
                 $('.noteModalHeader').append(newCard);
                 
@@ -115,9 +115,16 @@ $(function() {
 
     });
 
-    $('.deleteNoteButton').on("click", function(event) {
+    $('#deleteNoteButton').on("click", function(event) {
 
         event.preventDefault();
+        console.log(event);
+
+        $.ajax("/api/delete/article/" + articleId, {
+            type: "DELETE"
+        }).then(function() {
+            
+        })
 
         console.log("clicked");
 

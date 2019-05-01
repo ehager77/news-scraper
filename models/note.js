@@ -8,7 +8,12 @@ const noteSchema = new Schema({
   }, 
   body: {
   	type: String
+  },
+  saved: {
+		type: Boolean,
+		default: false
   }
+  
 });
 
 const note = mongoose.model("note", noteSchema);
